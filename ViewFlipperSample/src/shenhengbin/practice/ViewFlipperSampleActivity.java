@@ -1,7 +1,17 @@
 package shenhengbin.practice;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
@@ -24,6 +34,9 @@ public class ViewFlipperSampleActivity extends Activity {
 	private final GestureDetector detector = new GestureDetector(
 			new MyGestureDetector());
 
+    ImageLoader imageLoader = ImageLoader.getInstance();
+	private DisplayImageOptions options;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,14 +51,46 @@ public class ViewFlipperSampleActivity extends Activity {
 	        }
 	    });
 
-		vf.addView(addImageView(R.drawable.scott));
-		vf.addView(addImageView(R.drawable.ricardo));
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+        .memoryCacheSize(41943040)
+        .discCacheSize(1048576000)
+        .threadPoolSize(16)
+        .build();		        
+        imageLoader.init(config);
 
+        for(int i=1;i<36;++i)
+        	vf.addView(addImageView(i));
+		//vf.addView(addImageView(R.drawable.ricardo));
 	}
 
 	View addImageView(int resId) {
-		ImageView iv = new ImageView(this);
-		iv.setImageResource(resId);
+		final ImageView iv = new ImageView(this);
+		//imageLoader.displayImage("http://localhost/phpmyadmin/deck01/"+resId+".png", iv, options);
+		final String url="http://192.168.0.101/phpmyadmin/deck01/"+resId+".png";
+        new Thread(new Runnable(){
+            @Override
+            public void run() 
+            {
+        		final Bitmap bitmap;
+        		URL newurl;
+        		try {
+                    newurl = new URL( url );
+                    bitmap = BitmapFactory.decodeStream( newurl.openConnection( ).getInputStream( ) );
+                    /*runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            iv.setImageBitmap(bitmap);
+                        }
+                    });*/
+                    iv.setImageBitmap(bitmap);
+                } catch ( MalformedURLException e ) {
+                    e.printStackTrace( );
+                } catch ( IOException e ) {
+
+                    e.printStackTrace( );
+                }
+            }
+        }).start();
 
 		return iv;
 	}

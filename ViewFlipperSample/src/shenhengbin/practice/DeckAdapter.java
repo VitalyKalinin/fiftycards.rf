@@ -73,8 +73,7 @@ public class DeckAdapter extends BaseAdapter implements OnClickListener {
         DeckViewHolder holder = (DeckViewHolder) convertView.getTag();
     	Deck entry = list.get(position);
         holder.deckName.setText(entry.name);
-    	//holder.img.setImageResource(R.drawable.child01);
-		imageLoader.displayImage("http://fitcards.ru/preview/images_golovolomki_so_slovami_869x1172_200.jpg", holder.img, options);
+		imageLoader.displayImage(entry.image, holder.img, options);
         return convertView;
     }
 

@@ -57,8 +57,8 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
 	            startActivity(intent);
 	        }
 		});
-		/*for(int i=0;i<20;++i)
-			deckList.add(new Deck("1","Name#"+i,"bmp"));*/
+		for(int i=0;i<20;++i)
+			deckList.add(new Deck("1","Name#"+i,"bmp"));
 		deckListAdapter = new DeckAdapter(this, deckList);
 		getDecks();
 		glv.setAdapter(deckListAdapter);
@@ -78,8 +78,13 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
 			sad.callBack=new HttpCallback() {
 				@Override public void callBack(String result, boolean gettedFromCache) {
 						try {
-							deckList=getDecksFromXML(result);
-							Log.v("BUG","Count="+deckList.size());						
+							ArrayList<Deck> newDeckList=getDecksFromXML(result);
+							for(int i=0;i<newDeckList.size();++i)
+								deckList.add(newDeckList.get(i));
+
+							Log.v("BUG","Count="+deckList.size());	
+							Log.v("BUG","Name="+deckList.get(1).name);
+							//glv.setAdapter(deckListAdapter);
 							deckListAdapter.notifyDataSetChanged();							
 						} catch (XmlPullParserException e) {
 							e.printStackTrace();
@@ -136,7 +141,7 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
     			}
     			else if (tag.equals("deck_thumb")) 
     			{
-    	        	deck.name = buf;    	        	
+    	        	deck.image = buf;    	        	
     			} 
     		} else if(eventType == XmlPullParser.TEXT) {
     			buf = xpp.getText();
