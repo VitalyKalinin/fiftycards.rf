@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -40,6 +43,10 @@ public class ViewDeckActivity extends Activity implements OnTouchListener {
 	    {
 	        Log.e("Exception", e.getLocalizedMessage());
 	    }
+        if(android.os.Build.VERSION.SDK_INT >= 14)
+        {
+            setHomeButton();
+        }
 	}
 
 	View addImageView(int resId) {
@@ -74,4 +81,49 @@ public class ViewDeckActivity extends Activity implements OnTouchListener {
 
     	return true;
     } 
+    
+	private void setHomeButton()
+	 {
+	     getActionBar().setHomeButtonEnabled(true);
+	     getActionBar().setDisplayHomeAsUpEnabled(true);
+	 }
+
+	MenuItem playMenu;
+	public boolean onCreateOptionsMenu( Menu menu ) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate( R.menu.deck, menu );
+	    playMenu = menu.findItem(R.id.menu_addtofavs);
+	    updatePlayStatus();
+	    return true;
+	}
+
+	public void updatePlayStatus() 
+	{
+//	         playService.isPlaying() ? playMenu.setIcon(R.drawable.pause) : playMenu.setIcon(R.drawable.play);
+	}
+	
+	 @Override
+	 public boolean onOptionsItemSelected(MenuItem menu)
+	 {
+	     switch(menu.getItemId())
+	     {
+	         case R.id.menu_addtofavs:
+	             addToFavs();
+	     };
+	     return true;
+	 }
+
+	 boolean isFav=false;
+	 void addToFavs()
+	 {
+		 if(isFav==true)
+			 isFav=false;
+		 else
+			 isFav=true;
+		 
+		 if(isFav==true)
+			 playMenu.setIcon(R.drawable.rate_star_big_on_holo_light);
+		 else
+			 playMenu.setIcon(R.drawable.rate_star_big_off_holo_light);
+	 }
 }

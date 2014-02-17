@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -29,6 +31,7 @@ import android.widget.GridLayout.LayoutParams;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class ChooseDeckActivity extends Activity implements OnTouchListener {
@@ -38,7 +41,7 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
     GridView glv;
     DeckAdapter deckListAdapter;
     List<Deck> deckList = new ArrayList<Deck>();    
-
+    int ageId=0;
     
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,16 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
 		deckListAdapter = new DeckAdapter(this, deckList);
 		getDecks();
 		glv.setAdapter(deckListAdapter);
+		
+        ageId=getIntent().getExtras().getInt("ITEM_ID");
+        
+        Log.v("BUG","ageId="+ageId);
+        Toast.makeText(this, "AgeId="+ageId, Toast.LENGTH_LONG).show();
+        
+        if(android.os.Build.VERSION.SDK_INT >= 14)
+        {
+            setHomeButton();
+        }
 	}
 
     @Override
@@ -95,7 +108,7 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
 				@Override public void Prepare() {}
 			};
 			deckList.clear();
-			sad.execute("http://192.168.0.101/phpmyadmin/decks.xml");
+			sad.execute("http://192.168.0.101/phpmyadmin/decks.xml?id="+ageId);
 	}
 
 	
@@ -151,4 +164,34 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
     	return decks;
     }
 
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
+		
+	      // Inflate the menu; this adds items to the action bar if it is present.
+	      getMenuInflater().inflate(R.menu.main, menu);
+	      return true;
+	}
+	
+	 @Override
+	 public boolean onOptionsItemSelected(MenuItem menu)
+	 {
+	     switch(menu.getItemId())
+	     {
+	         case R.id.go_to_favs:
+	             finish();
+	             break;
+	         case android.R.id.home:
+	             finish();
+	             break;
+	     };
+	     return true;
+	 }
+	 
+	private void setHomeButton()
+	 {
+	     getActionBar().setHomeButtonEnabled(true);
+	     getActionBar().setDisplayHomeAsUpEnabled(true);
+	 }
 }

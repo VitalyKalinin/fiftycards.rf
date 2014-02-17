@@ -5,100 +5,8 @@
     android:orientation="vertical"
 >
 	
-	<LinearLayout 
-	    android:layout_weight="1" 
-	    android:layout_width="fill_parent"
-		android:layout_height="0dp" 
-	    android:padding="0dp" 
-	    android:orientation="vertical" 
-	    android:gravity="center_vertical" 
-	    android:id="@+id/main">
-
-	    <ImageView 
-			android:textSize="50sp" 
-			android:layout_height="fill_parent" 
-			android:layout_width="fill_parent" 
-			android:src="@drawable/child01"
-		/>	    
-		<TextView 
-			android:textSize="30sp" 
-			android:layout_height="60dp" 
-			android:layout_width="fill_parent" 
-			android:text="0-1" 
-		/>
-	    </LinearLayout>
-
 		<LinearLayout 
-		android:layout_weight="1" 
-		android:layout_height="0dp" 		
-	    android:layout_width="fill_parent" 
-	    android:padding="0dp" 
-	    android:orientation="vertical" 
-	    android:gravity="center_vertical">
-
-		<ImageView 
-			android:textSize="50sp" 
-			android:layout_height="fill_parent" 
-			android:layout_width="fill_parent" 
-			android:src="@drawable/child02"
-		/>	    
-		    
-	    <TextView 
-			android:textSize="30sp" 
-			android:layout_height="60dp" 
-			android:layout_width="fill_parent" 
-			android:text="1-15" 
-		/>	    	    
-		</LinearLayout>
-
-		<LinearLayout 
-		android:layout_weight="1" 
-		android:layout_height="0dp" 		
-	    android:layout_width="fill_parent" 
-	    android:padding="0dp" 
-	    android:orientation="vertical" 
-	    android:gravity="center_vertical">
-
-		<ImageView 
-			android:textSize="50sp" 
-			android:layout_height="fill_parent" 
-			android:layout_width="fill_parent" 
-			android:src="@drawable/child02"
-		/>	    
-		    
-	    <TextView 
-			android:textSize="30sp" 
-			android:layout_height="60dp" 
-			android:layout_width="fill_parent" 
-			android:text="1-15" 
-		/>	    	    
-		</LinearLayout>
-
-
-		<LinearLayout 
-		android:layout_weight="1" 
-		android:layout_height="0dp" 		
-	    android:layout_width="fill_parent" 
-	    android:padding="0dp" 
-	    android:orientation="vertical" 
-	    android:gravity="center_vertical">
-
-		<ImageView 
-			android:textSize="50sp" 
-			android:layout_height="fill_parent" 
-			android:layout_width="fill_parent" 
-			android:src="@drawable/child02"
-		/>	    
-		    
-	    <TextView 
-			android:textSize="30sp" 
-			android:layout_height="60dp" 
-			android:layout_width="fill_parent" 
-			android:text="1-15" 
-		/>	    	    
-		</LinearLayout>
-
-		<LinearLayout 
+		android:id="@+id/item1"
 		android:layout_weight="1" 
 		android:layout_height="0dp" 		
 	    android:layout_width="fill_parent" 
@@ -118,10 +26,140 @@
 			android:layout_height="70dp" 
 			android:layout_width="fill_parent" 
 			android:gravity="center"
-			android:text="1-15" 
+			android:text="0-1 год" 
 			android:layout_marginBottom="30dp"
 		/>	    	    
 		</LinearLayout>
 
 
+		<LinearLayout 
+		android:id="@+id/item2"
+		android:layout_weight="1" 
+		android:layout_height="0dp" 		
+	    android:layout_width="fill_parent" 
+	    android:padding="0dp" 
+	    android:orientation="vertical" 
+	    android:gravity="center_vertical">
+
+		<ImageView 
+			android:textSize="50sp" 
+			android:layout_height="fill_parent" 
+			android:layout_width="fill_parent" 
+			android:src="@drawable/child02"
+		/>	    
+		    
+	    <TextView 
+			android:textSize="30sp" 
+			android:layout_height="70dp" 
+			android:layout_width="fill_parent" 
+			android:gravity="center"
+			android:text="1-4 года" 
+			android:layout_marginBottom="30dp"
+		/>	    	    
+		</LinearLayout>
+		
+		<LinearLayout 
+		android:id="@+id/item3"
+		android:layout_weight="1" 
+		android:layout_height="0dp" 		
+	    android:layout_width="fill_parent" 
+	    android:padding="0dp" 
+	    android:orientation="vertical" 
+	    android:gravity="center_vertical">
+
+		<ImageView 
+			android:textSize="50sp" 
+			android:layout_height="fill_parent" 
+			android:layout_width="fill_parent" 
+			android:src="@drawable/child02"
+		/>	    
+		    
+	    <TextView 
+			android:textSize="30sp" 
+			android:layout_height="70dp" 
+			android:layout_width="fill_parent" 
+			android:gravity="center"
+			android:text="4-6 лет" 
+			android:layout_marginBottom="30dp"
+		/>	    	    
+		</LinearLayout>
+
+				<LinearLayout 
+		android:id="@+id/item4"				    
+		android:layout_weight="1" 
+		android:layout_height="0dp" 		
+	    android:layout_width="fill_parent" 
+	    android:padding="0dp" 
+	    android:orientation="vertical" 
+	    android:gravity="center_vertical">
+
+		<ImageView 
+			android:textSize="50sp" 
+			android:layout_height="fill_parent" 
+			android:layout_width="fill_parent" 
+			android:src="@drawable/child02"
+		/>	    
+		    
+	    <TextView 
+			android:textSize="30sp" 
+			android:layout_height="70dp" 
+			android:layout_width="fill_parent" 
+			android:gravity="center"
+			android:text="6-8 лет" 
+			android:layout_marginBottom="30dp"
+		/>	    	    
+		</LinearLayout>
+
+				<LinearLayout 
+		android:id="@+id/item5"				    
+		android:layout_weight="1" 
+		android:layout_height="0dp" 		
+	    android:layout_width="fill_parent" 
+	    android:padding="0dp" 
+	    android:orientation="vertical" 
+	    android:gravity="center_vertical">
+
+		<ImageView 
+			android:textSize="50sp" 
+			android:layout_height="fill_parent" 
+			android:layout_width="fill_parent" 
+			android:src="@drawable/child02"
+		/>	    
+		    
+	    <TextView 
+			android:textSize="30sp" 
+			android:layout_height="70dp" 
+			android:layout_width="fill_parent" 
+			android:gravity="center"
+			android:text="8-10 лет" 
+			android:layout_marginBottom="30dp"
+		/>	    	    
+		</LinearLayout>
+
+		<LinearLayout 
+		android:id="@+id/item6"
+		android:layout_weight="1" 
+		android:layout_height="0dp" 		
+	    android:layout_width="fill_parent" 
+	    android:padding="0dp" 
+	    android:orientation="vertical" 
+	    android:gravity="center_vertical">
+
+		<ImageView 
+			android:textSize="50sp" 
+			android:layout_height="fill_parent" 
+			android:layout_width="fill_parent" 
+			android:src="@drawable/child02"
+		/>	    
+		    
+	    <TextView 
+			android:textSize="30sp" 
+			android:layout_height="70dp" 
+			android:layout_width="fill_parent" 
+			android:gravity="center"
+			android:text="10-15 лет" 
+			android:layout_marginBottom="30dp"
+		/>	    	    
+		</LinearLayout>
+																				
 </LinearLayout>
