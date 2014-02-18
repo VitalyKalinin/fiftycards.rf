@@ -1,4 +1,4 @@
-package shenhengbin.practice;
+package fiftycards.rg;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -9,6 +9,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import shenhengbin.practice.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

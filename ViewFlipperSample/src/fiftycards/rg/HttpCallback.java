@@ -1,4 +1,4 @@
-package shenhengbin.practice;
+package fiftycards.rg;
 
 public interface HttpCallback {
 	void Prepare();

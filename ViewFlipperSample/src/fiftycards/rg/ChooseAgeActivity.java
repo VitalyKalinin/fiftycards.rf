@@ -1,5 +1,6 @@
-package shenhengbin.practice;
+package fiftycards.rg;
 
+import shenhengbin.practice.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
