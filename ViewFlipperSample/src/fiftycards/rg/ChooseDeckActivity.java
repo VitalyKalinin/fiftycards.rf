@@ -109,7 +109,7 @@ public class ChooseDeckActivity extends Activity implements OnTouchListener {
 				@Override public void Prepare() {}
 			};
 			deckList.clear();
-			sad.execute("http://192.168.0.101/phpmyadmin/decks.xml?id="+ageId);
+			sad.execute("http://192.168.0.119/decks.xml?id="+ageId);
 	}
 
 	

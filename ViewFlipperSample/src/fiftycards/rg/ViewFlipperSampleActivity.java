@@ -68,7 +68,7 @@ public class ViewFlipperSampleActivity extends Activity {
 	View addImageView(int resId) {
 		final ImageView iv = new ImageView(this);
 		//imageLoader.displayImage("http://localhost/phpmyadmin/deck01/"+resId+".png", iv, options);
-		final String url="http://192.168.0.101/phpmyadmin/deck01/"+resId+".png";
+		final String url="http://192.168.0.119/deck01/"+resId+".png";
         new Thread(new Runnable(){
             @Override
             public void run() 
